@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js" defer></script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(to right, #4a90e2, #9013fe);
+        }
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 50;
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+<!-- Header -->
+<header class="bg-white shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6 relative" x-data="{ open: false }">
+        <h1 class="text-3xl font-extrabold text-blue-600">Brand</h1>
+        <!-- Mobile Menu Button -->
+        <button @click="open = !open" class="md:hidden text-gray-700 hover:text-blue-600 transition duration-300 relative z-10">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex flex-grow items-center justify-center space-x-6">
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="text-gray-700 hover:text-blue-600 transition duration-300">About</a></li>
+                <li><a href="#features" class="text-gray-700 hover:text-blue-600 transition duration-300">Features</a></li>
+                <li><a href="#testimonials" class="text-gray-700 hover:text-blue-600 transition duration-300">Testimonials</a></li>
+                <li><a href="#pricing" class="text-gray-700 hover:text-blue-600 transition duration-300">Pricing</a></li>
+                <li><a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- Mobile Menu -->
+        <div :class="{'mobile-menu': true, 'open': open}" class="fixed top-0 left-0 h-full bg-white shadow-lg ">
+            <div class="flex flex-col h-full w-44">
+                <button @click="open = false" class="p-4 text-gray-700 hover:text-blue-600 absolute top-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <ul class="flex flex-col p-4 space-y-4 mt-16">
+                    <li><a href="#about" class="text-gray-700 hover:text-blue-600 transition duration-300">About</a></li>
+                    <li><a href="#features" class="text-gray-700 hover:text-blue-600 transition duration-300">Features</a></li>
+                    <li><a href="#testimonials" class="text-gray-700 hover:text-blue-600 transition duration-300">Testimonials</a></li>
+                    <li><a href="#pricing" class="text-gray-700 hover:text-blue-600 transition duration-300">Pricing</a></li>
+                    <li><a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero-bg text-white h-screen flex flex-col justify-center items-center text-center">
+    <div class="container mx-auto px-4">
+        <h2 class="text-5xl font-bold mb-6 leading-tight">Elevate Your Experience with Our Platform</h2>
+        <p class="text-xl mb-8">Join thousands of satisfied users and take your productivity to the next level.</p>
+        <a href="#contact" class="bg-white text-blue-600 py-3 px-6 rounded-full font-semibold hover:bg-gray-100 transition duration-300">Get Started</a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-16">
+    <div class="container md:flex block mx-auto px-6">
+        <div class="md:w-1/2 pr-4">
+            <h2 class="text-4xl font-bold mb-8 text-gray-900">About Us</h2>
+            <p class="text-lg mb-6 text-gray-700">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam culpa dicta ea eligendi, est incidunt, minus mollitia, porro quasi rerum sed sit veniam? Adipisci, alias aliquam amet consequatur dolore facilis, magnam molestias neque nostrum nulla quaerat, quas quibusdam quisquam sapiente sunt vel voluptas. Ad animi doloribus illo inventore vitae?</p>
+        </div>
+        <div class="md:w-1/2">
+            <img src="https://via.placeholder.com/800x500" alt="About Us" class="mx-auto rounded-lg shadow-lg">
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="bg-gray-100 py-16">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold mb-12 text-gray-900">Our Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                <img src="https://via.placeholder.com/100x100" alt="About Us" class="mx-auto rounded-lg shadow-lg my-16">
+                <h3 class="text-2xl font-semibold mb-4 text-blue-600">Feature One</h3>
+                <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                <img src="https://via.placeholder.com/100x100" alt="About Us" class="mx-auto rounded-lg shadow-lg my-16">
+                <h3 class="text-2xl font-semibold mb-4 text-blue-600">Feature Two</h3>
+                <p class="text-gray-600">Vestibulum viverra justo ac tellus ultrices. Quisque in turpis ac nunc bibendum mollis.</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                <img src="https://via.placeholder.com/100x100" alt="About Us" class="mx-auto rounded-lg shadow-lg my-16">
+                <h3 class="text-2xl font-semibold mb-4 text-blue-600">Feature Three</h3>
+                <p class="text-gray-600">Praesent mollis urna non quam suscipit, a laoreet nisi egestas. Duis a libero nec nisl.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section id="pricing" class="py-16">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold mb-12 text-gray-900">Pricing Plans</h2>
+        <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 flex flex-col justify-between h-full border border-gray-200">
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/130" alt="Pro Plan Image" class="w-16 h-16 mx-auto mb-4 rounded-full">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-700">Basic Plan</h3>
+                    <p class="text-gray-800 text-lg mb-4">$29/month</p>
+                    <p class="text-gray-600 mb-6">Our Basic Plan is perfect for individuals and small teams who need essential features and support. It includes a solid amount of storage and project management tools to get started.</p>
+                </div>
+                <ul class="text-left text-gray-600 mb-6 space-y-2">
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        10 Projects
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        5GB Storage
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        Email Support
+                    </li>
+                </ul>
+                <a href="#contact" class="bg-blue-600 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-700 transition duration-300 text-center">Choose Plan</a>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 flex flex-col justify-between h-full border border-gray-200 ">
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/150" alt="Pro Plan Image" class="w-24 h-24 mx-auto mb-4 rounded-full">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-700">Pro Plan</h3>
+                    <p class="text-gray-800 text-lg mb-4">$59/month</p>
+                    <p class="text-gray-600 mb-6">Our Pro Plan offers everything you need for an exceptional experience, including unlimited projects, ample storage, and priority support to ensure your success.</p>
+                </div>
+                <ul class="text-left text-gray-600 mb-6 space-y-2">
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        Unlimited Projects
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        20GB Storage
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        Priority Support
+                    </li>
+                </ul>
+                <a href="#contact" class="bg-blue-600 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-700 transition duration-300 text-center">Choose Plan</a>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 flex flex-col justify-between h-full border border-gray-200">
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/130" alt="Pro Plan Image" class="w-16 h-16 mx-auto mb-4 rounded-full">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-700">Enterprise Plan</h3>
+                    <p class="text-gray-800 text-lg mb-4">Contact us</p>
+                    <p class="text-gray-600 mb-6">Our Enterprise Plan is designed for large organizations and teams that require extensive features, including unlimited projects, substantial storage, and dedicated support.</p>
+                </div>
+                <ul class="text-left text-gray-600 mb-6 space-y-2">
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        Unlimited Projects
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        100GB Storage
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        Dedicated Support
+                    </li>
+                </ul>
+                <a href="#contact" class="bg-blue-600 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-700 transition duration-300 text-center">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold mb-12 text-gray-900 text-center">What Our Clients Say</h2>
+        <div class="flex flex-wrap justify-center gap-8">
+            <!-- Testimonial 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 w-full sm:w-80">
+                <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/50" alt="John Doe" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600">John Doe</h4>
+                        <p class="text-gray-500">CEO, Company</p>
+                    </div>
+                </div>
+                <p class="text-gray-600">"This platform has transformed the way we manage our tasks. It's a game changer!"</p>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 w-full sm:w-80">
+                <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/50" alt="Jane Smith" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600">Jane Smith</h4>
+                        <p class="text-gray-500">Product Manager, Company</p>
+                    </div>
+                </div>
+                <p class="text-gray-600">"An exceptional tool that has improved our team's efficiency. Highly recommended."</p>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 w-full sm:w-80">
+                <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/50" alt="Michael Brown" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600">Michael Brown</h4>
+                        <p class="text-gray-500">Marketing Director, Company</p>
+                    </div>
+                </div>
+                <p class="text-gray-600">"A fantastic experience with great features that streamline our workflow."</p>
+            </div>
+            <!-- Testimonial 4 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 w-full sm:w-80">
+                <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/50" alt="Emily Davis" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600">Emily Davis</h4>
+                        <p class="text-gray-500">HR Specialist, Company</p>
+                    </div>
+                </div>
+                <p class="text-gray-600">"A remarkable platform that exceeds expectations and enhances productivity."</p>
+            </div>
+            <!-- Testimonial 5 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 w-full sm:w-80">
+                <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/50" alt="Sarah Wilson" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600">Sarah Wilson</h4>
+                        <p class="text-gray-500">Operations Manager, Company</p>
+                    </div>
+                </div>
+                <p class="text-gray-600">"Incredibly useful and user-friendly. Perfect for our team needs."</p>
+            </div>
+            <!-- Testimonial 6 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 w-full sm:w-80">
+                <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/50" alt="David Clark" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600">David Clark</h4>
+                        <p class="text-gray-500">Sales Manager, Company</p>
+                    </div>
+                </div>
+                <p class="text-gray-600">"Excellent service and features. A must-have for any business."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="bg-gray-50 py-16">
+    <div class="container mx-auto px-6 flex justify-center">
+        <div class="flex w-full max-w-4xl shadow-lg rounded-lg overflow-hidden">
+            <form action="#" method="POST" class="bg-white p-8 w-full lg:w-1/3">
+                <h2 class="text-4xl font-bold mb-8 text-gray-900">Contact Us</h2>
+                <div class="mb-6">
+                    <label for="name" class="block text-gray-700 mb-2">Name</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" required>
+                </div>
+                <div class="mb-6">
+                    <label for="email" class="block text-gray-700 mb-2">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" required>
+                </div>
+                <div class="mb-6">
+                    <label for="message" class="block text-gray-700 mb-2">Message</label>
+                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" required></textarea>
+                </div>
+                <button type="submit" class="bg-blue-600 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-700 transition duration-300 w-full">Send Message</button>
+            </form>
+
+            <div class="hidden lg:block w-2/3">
+                <img src="https://via.placeholder.com/400" alt="Contact Us" class="w-full h-full object-cover rounded-r-lg">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-blue-600 text-white py-6">
+    <div class="container mx-auto text-center">
+        <p>&copy; 2024 Brand. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
